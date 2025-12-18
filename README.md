@@ -1,4 +1,4 @@
-# ignition-copier-templates
+# copier-templates
 
 ignition-devs [copier] templates for Ignition projects.
 
@@ -83,7 +83,7 @@ ignition-devs [copier] templates for Ignition projects.
 You can generate a project from a template using the copier command-line tool:
 
 ```sh
-copier copy gh:ignition-devs/ignition-copier-templates /path/to/destination
+copier copy gh:ignition-devs/copier-templates /path/to/destination
 ```
 
 ### Updating a project
