@@ -1,0 +1,35 @@
+name: publish
+
+on:
+  release:
+    types:
+      - 'published'
+
+jobs:
+  pypi-publish-package:
+    uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
+    with:
+      python-version: '2.7'
+      {%- if registry_url != 'https://upload.pypi.org/legacy/' %}
+      url: '{{ registry_url }}'
+      {%- endif %}
+      {%- if registry_username != '__token__' %}
+      username: '{{ registry_username }}'
+      {%- endif %}
+    secrets:
+      password: ${% raw %}{{ secrets.SECRET_TOKEN_OR_PASSWORD }}{% endraw %}
+{% if generate_stubs %}
+  pypi-publish-stubs:
+    uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
+    with:
+      python-version: '3.12'
+      {%- if registry_url != 'https://upload.pypi.org/legacy/' %}
+      url: '{{ registry_url }}'
+      {%- endif %}
+      {%- if registry_username != '__token__' %}
+      username: '{{ registry_username }}'
+      {%- endif %}
+      working-directory: 'stubs'
+    secrets:
+      password: ${% raw %}{{ secrets.SECRET_TOKEN_OR_PASSWORD }}{% endraw %}
+{% endif %}

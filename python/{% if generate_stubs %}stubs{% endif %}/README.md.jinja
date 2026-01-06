@@ -1,0 +1,32 @@
+# {{ project_name }}
+
+{{ project_description }}
+
+This package contains a collection of [stubs] generated using `mypy`'s
+[`stubgen`] tool.
+
+## Installation and usage
+
+To use {{ project_name }}, you may install it with `pip`. It requires Python
+3.7 - 3.12.
+
+```sh
+python -m pip install {{ project_name }}
+```
+
+To run `mypy` against your code, execute the following command passing the
+source directory (typically `src`) or a single file:
+
+```sh
+mypy src
+```
+
+Or
+
+```sh
+mypy code.py
+```
+
+<!-- Links -->
+[`stubgen`]: https://coatl-mypy.readthedocs.io/en/v0.971/stubgen.html
+[stubs]: https://www.python.org/dev/peps/pep-484/

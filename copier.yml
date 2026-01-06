@@ -3,10 +3,9 @@ project_type:
   type: str
   help: Select your project type.
   choices:
-    Ignition project: ignition-project
-    Jython package: jython-package
-    Python 2 package: python2-package
-    Python 3 stubs: python3-stubs
+    Ignition project: ignition
+    Jython: jython
+    Python: python
 
 author_fullname:
   type: str
@@ -52,7 +51,7 @@ project_development_status:
     Stable: 5 - Production/Stable
     Mature: 6 - Mature
     Inactive: 7 - Inactive
-  when: "{{ project_type != 'ignition-project' }}"
+  when: "{{ project_type != 'ignition' }}"
 
 github_org:
   type: str
@@ -99,37 +98,42 @@ project_inheritable:
   type: bool
   help: Is this project inheritable?
   default: yes
-  when: "{{ project_type == 'ignition-project' }}"
+  when: "{{ project_type == 'ignition' }}"
 
 use_sourcery:
   type: bool
   help: Use sourcery?
   default: yes
-  when: "{{ project_type != 'python3-stubs' }}"
 
 upload_registry:
   type: bool
   help: Will this project be uploaded to a Python repository? (E.g. PyPI, Azure Artifacts)
   default: "{{ project_license != 'LicenseRef-Proprietary' }}"
-  when: "{{ project_type != 'ignition-project' }}"
+  when: "{{ project_type != 'ignition' }}"
 
 registry_url:
   type: str
   help: The repository (package index) URL to upload the package to.
   default: https://upload.pypi.org/legacy/
-  when: "{{ upload_registry and project_type != 'ignition-project'}}"
+  when: "{{ upload_registry and project_type != 'ignition'}}"
 
 registry_username:
   type: str
   help: The username to authenticate to the repository (package index) as.
   default: __token__
-  when: "{{ upload_registry and project_type != 'ignition-project' }}"
+  when: "{{ upload_registry and project_type != 'ignition' }}"
 
 use_devcontainer:
   type: bool
   help: Should this project use a devcontainer for development?
   default: no
-  when: "{{ project_type == 'jython-package' or project_type == 'python2-package' }}"
+  when: "{{ project_type == 'jython' or project_type == 'python' }}"
+
+generate_stubs:
+  type: bool
+  help: Will you create stubs for your package?
+  default: no
+  when: "{{ project_type == 'jython' or project_type == 'python' }}"
 
 # Copier metadata
 _min_copier_version: "9"

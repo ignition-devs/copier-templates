@@ -6,3 +6,4 @@ commitizen:
   update_changelog_on_bump: true
   version: 0.1.9
   version_scheme: semver
+  breaking_change_exclamation_in_title: false

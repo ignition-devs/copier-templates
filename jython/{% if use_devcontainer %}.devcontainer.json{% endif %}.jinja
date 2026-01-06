@@ -1,0 +1,25 @@
+{
+  "name": "{{ project_name }}",
+  "image": "quay.io/ignition-devs/devcontainer-base:jython",
+  "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
+  "workspaceFolder": "/workspaces/{{ project_name }}",
+  "mounts": [
+    "source=pre-commit-cache,target=/root/.cache/pre-commit,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.vscode-github-actions",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/python/2.7/bin/python"
+      }
+    }
+  },
+  "postCreateCommand":{
+    "pre-commit": "pre-commit install",
+    "dev-requirements": "python2 -m pip install --requirement requirements.txt"
+  }
+}

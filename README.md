@@ -5,7 +5,7 @@ ignition-devs [copier] templates for Ignition projects.
 ## Pre-requisites
 
 - Git
-- [Python 2.7.18] (for `jython-package` and `python2-package`)
+- [Python 2.7.18] (for `jython` and `python2-package`)
 - Python 3.12 (for [mypy])
 - [copier]
 
@@ -15,7 +15,7 @@ ignition-devs [copier] templates for Ignition projects.
 
 ## Templates
 
-### ignition-project
+### ignition
 
 - Automated code checks before committing to version control using [pre-commit]
 - Pre-configured tools for code formatting, quality analysis and testing:
@@ -31,7 +31,7 @@ ignition-devs [copier] templates for Ignition projects.
 - [Python 2.7.18]
 - Auto-generated `CHANGELOG.md` from git commits using [commitizen]
 
-### jython-package
+### jython
 
 - Automated code checks before committing to version control using [pre-commit]
 - Pre-configured tools for code formatting, quality analysis and testing:
@@ -46,9 +46,8 @@ ignition-devs [copier] templates for Ignition projects.
   - [unimport]
 - Tests run with [sourcery], [tox] and [make]
 - [Jython 2.7.3], [Python 2.7.18]
-- Auto-generated `CHANGELOG.md` from git commits using [commitizen]
 
-### python2-package
+### python
 
 - Automated code checks before committing to version control using [pre-commit]
 - Pre-configured tools for code formatting, quality analysis and testing:
@@ -65,7 +64,9 @@ ignition-devs [copier] templates for Ignition projects.
 - [Python 2.7.18]
 - Auto-generated `CHANGELOG.md` from git commits using [commitizen]
 
-### python3-stubs
+### jython/python stubs
+
+This is optional for both [jython] and [python] packages.
 
 - Automated code checks before committing to version control using [pre-commit]
 - Pre-configured tools for code formatting, quality analysis and testing:
@@ -73,8 +74,7 @@ ignition-devs [copier] templates for Ignition projects.
   - [flake8]
   - [isort]
 - Tests run with [tox]
-- Python 3.12
-- Auto-generated `CHANGELOG.md` from git commits using [commitizen]
+- [Python 3.12]
 
 ## Quick setup and usage
 
@@ -96,8 +96,11 @@ copier update --defaults
 
 <!-- Links -->
 [copier]: https://copier.readthedocs.io/en/stable/
+[jython]: #jython
 [Jython 2.7.3]: https://repo1.maven.org/maven2/org/python/jython-installer/2.7.3/
+[python]: #python
 [Python 2.7.18]: https://www.python.org/downloads/release/python-2718/
+[Python 3.12]: https://www.python.org/downloads/latest/python3.12/
 <!-- Tools -->
 [black]: https://black.readthedocs.io/en/stable/
 [coatl-dev/flake8]: https://flake8.pycqa.org/en/5.0.4/
