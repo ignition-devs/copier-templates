@@ -1,0 +1,54 @@
+[tox]
+requires =
+    tox>=4.2
+    virtualenv<20.22.0
+env_list =
+    install
+    typecheck
+
+[testenv:install]
+description = install package
+base_python = python2.7
+
+[testenv:typecheck]
+description = run type check on code base
+base_python = python3.12
+skip_install = true
+deps =
+    ignition-api-stubs@ git+https://github.com/ignition-devs/ignition-api.git@8.3\#subdirectory=stubs
+    mypy[python2]@ git+https://github.com/coatl-dev/mypy.git@v0.971
+commands =
+    mypy src
+{% if generate_stubs %}
+[testenv:stubgen]
+description = generate stubs
+base_python = python3.12
+skip_install = true
+deps =
+    mypy[python2]@ git+https://github.com/coatl-dev/mypy.git@v0.971
+commands =
+    stubgen --export-less --output=stubs{/}stubs src
+{% endif %}
+[docformatter]
+in-place = true
+close-quotes-on-newline = true
+wrap-summaries = 72
+
+[flake8]
+ignore = F821
+max-complexity = 10
+max-doc-length = 72
+max-line-length = 88
+style = google
+arg-type-hints-in-docstring = False
+arg-type-hints-in-signature = False
+check-return-types = False
+
+[isort]
+extra_standard_library = typing
+profile = black
+py_version = 27
+
+[pydocstyle]
+add_select = D400, D401
+convention = google
