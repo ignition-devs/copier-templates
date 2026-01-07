@@ -6,7 +6,7 @@ ignition-devs [copier] templates for Ignition projects.
 
 - Git
 - [Python 2.7.18] (for `jython` and `python2-package`)
-- Python 3.12 (for [mypy])
+- [Python 3.12] (for [mypy])
 - [copier]
 
   ```sh
@@ -29,7 +29,6 @@ ignition-devs [copier] templates for Ignition projects.
   - [unimport]
 - Tests run with [sourcery]
 - [Python 2.7.18]
-- Auto-generated `CHANGELOG.md` from git commits using [commitizen]
 
 ### jython
 
@@ -62,7 +61,6 @@ ignition-devs [copier] templates for Ignition projects.
   - [unimport]
 - Tests run with [sourcery] and [tox]
 - [Python 2.7.18]
-- Auto-generated `CHANGELOG.md` from git commits using [commitizen]
 
 ### jython/python stubs
 

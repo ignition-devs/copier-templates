@@ -1,3 +1,13 @@
+## 0.2.0 (2026-01-06)
+
+### BREAKING CHANGE
+
+- remove python3-stubs and rename project types
+
+### Refactor
+
+- merge stubs into jython and python (#100)
+
 ## 0.1.9 (2025-11-28)
 
 ### Refactor
