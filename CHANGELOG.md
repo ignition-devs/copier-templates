@@ -1,3 +1,9 @@
+## 0.2.1 (2026-01-06)
+
+### Refactor
+
+- run tox before publishing package (#101)
+
 ## 0.2.0 (2026-01-06)
 
 ### BREAKING CHANGE
