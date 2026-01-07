@@ -1,3 +1,9 @@
+## 0.2.2 (2026-01-06)
+
+### Refactor
+
+- **jython**: delete stubs/.copier_answers.yml (#102)
+
 ## 0.2.1 (2026-01-06)
 
 ### Refactor
