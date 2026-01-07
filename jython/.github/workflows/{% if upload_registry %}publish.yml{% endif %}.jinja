@@ -6,25 +6,23 @@ on:
       - 'published'
 
 jobs:
-  pre-commit:
-    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@v6
-    with:
-      skip-hooks: 'pylint'
-
-  pylint:
-    needs: pre-commit
-    uses: coatl-dev/workflows/.github/workflows/pylint.yml@v6
-
-  jython:
-    needs: pylint
-    uses: ./.github/workflows/jython.yml
-
-  tox:
-    needs: jython
+  tox-package:
+    if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v6
-
-  pypi-publish:
-    needs: tox
+{% if generate_stubs %}
+  tox-stubs:
+    if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
+    uses: coatl-dev/workflows/.github/workflows/tox.yml@v6
+    with:
+      python-versions: |
+        3.9
+        3.10
+        3.11
+        3.12
+      working-directory: stubs
+{% endif %}
+  pypi-publish-package:
+    needs: [tox-package]
     uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
     with:
       python-version: '2.7'
@@ -36,3 +34,19 @@ jobs:
       {%- endif %}
     secrets:
       password: ${% raw %}{{ secrets.SECRET_TOKEN_OR_PASSWORD }}{% endraw %}
+{% if generate_stubs %}
+  pypi-publish-stubs:
+    needs: [tox-stubs]
+    uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
+    with:
+      python-version: '3.12'
+      {%- if registry_url != 'https://upload.pypi.org/legacy/' %}
+      url: '{{ registry_url }}'
+      {%- endif %}
+      {%- if registry_username != '__token__' %}
+      username: '{{ registry_username }}'
+      {%- endif %}
+      working-directory: 'stubs'
+    secrets:
+      password: ${% raw %}{{ secrets.SECRET_TOKEN_OR_PASSWORD }}{% endraw %}
+{% endif %}

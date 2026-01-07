@@ -6,7 +6,23 @@ on:
       - 'published'
 
 jobs:
+  tox-package:
+    if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
+    uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v6
+{% if generate_stubs %}
+  tox-stubs:
+    if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
+    uses: coatl-dev/workflows/.github/workflows/tox.yml@v6
+    with:
+      python-versions: |
+        3.9
+        3.10
+        3.11
+        3.12
+      working-directory: stubs
+{% endif %}
   pypi-publish-package:
+    needs: [tox-package]
     uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
     with:
       python-version: '2.7'
@@ -20,6 +36,7 @@ jobs:
       password: ${% raw %}{{ secrets.SECRET_TOKEN_OR_PASSWORD }}{% endraw %}
 {% if generate_stubs %}
   pypi-publish-stubs:
+    needs: [tox-stubs]
     uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
     with:
       python-version: '3.12'
