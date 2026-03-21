@@ -1,3 +1,9 @@
+## 0.3.0 (2026-03-21)
+
+### Feat
+
+- stubs and devcontainer are no longer optional (#110)
+
 ## 0.2.2 (2026-01-06)
 
 ### Refactor
