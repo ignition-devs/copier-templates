@@ -20,7 +20,7 @@ jobs:
   tox-package:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v6
-{% if generate_stubs %}
+
   tox-stubs:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     uses: coatl-dev/workflows/.github/workflows/tox.yml@v6
@@ -31,4 +31,3 @@ jobs:
         3.11
         3.12
       working-directory: stubs
-{% endif %}

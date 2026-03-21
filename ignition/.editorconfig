@@ -7,7 +7,6 @@ root = true
 charset = utf-8
 end_of_line = lf
 indent_style = space
-insert_final_newline = true
 trim_trailing_whitespace = true
 
 [*.{json}]
@@ -22,3 +21,4 @@ insert_final_newline = true
 
 [*.{py}]
 indent_style = tab
+insert_final_newline = true

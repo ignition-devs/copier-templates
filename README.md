@@ -5,7 +5,7 @@ ignition-devs [copier] templates for Ignition projects.
 ## Pre-requisites
 
 - Git
-- [Python 2.7.18] (for `jython` and `python2-package`)
+- [Python 2.7.18] (for `jython` and `python`)
 - [Python 3.12] (for [mypy])
 - [copier]
 

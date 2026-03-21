@@ -9,7 +9,7 @@ jobs:
   tox-package:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v6
-{% if generate_stubs %}
+
   tox-stubs:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     uses: coatl-dev/workflows/.github/workflows/tox.yml@v6
@@ -20,7 +20,7 @@ jobs:
         3.11
         3.12
       working-directory: stubs
-{% endif %}
+
   pypi-publish-package:
     needs: [tox-package]
     uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
@@ -34,7 +34,7 @@ jobs:
       {%- endif %}
     secrets:
       password: ${% raw %}{{ secrets.SECRET_TOKEN_OR_PASSWORD }}{% endraw %}
-{% if generate_stubs %}
+
   pypi-publish-stubs:
     needs: [tox-stubs]
     uses: coatl-dev/workflows/.github/workflows/pypi-upload.yml@v6
@@ -49,4 +49,3 @@ jobs:
       working-directory: 'stubs'
     secrets:
       password: ${% raw %}{{ secrets.SECRET_TOKEN_OR_PASSWORD }}{% endraw %}
-{% endif %}
