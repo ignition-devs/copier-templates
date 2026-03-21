@@ -13,6 +13,11 @@ repos:
     rev: 0.37.0
     hooks:
       - id: check-github-workflows
+  - repo: https://github.com/aristanetworks/j2lint
+    rev: v1.2.0
+    hooks:
+    - id: j2lint
+      args: [--ignore, S2, S6, S7, V1, --]
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.13.9
     hooks:

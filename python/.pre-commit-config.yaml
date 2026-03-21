@@ -43,7 +43,6 @@ repos:
         files: ^src/
         additional_dependencies: [pydoclint]
         language_version: python3.12
-{%- if generate_stubs %}
   - repo: https://github.com/PyCQA/isort
     rev: 7.0.0
     hooks:
@@ -60,7 +59,6 @@ repos:
         files: \.(pyi)$
         additional_dependencies: [flake8-pyi]
         args: [--config=stubs/tox.ini]
-{% endif %}
   - repo: https://github.com/PyCQA/pydocstyle
     rev: 6.3.0
     hooks:

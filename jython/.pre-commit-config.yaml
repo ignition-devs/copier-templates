@@ -11,17 +11,17 @@ repos:
       - id: ssort
         files: ^src/
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 25.12.0
+    rev: 26.3.1
     hooks:
       - id: black
   - repo: https://github.com/hakancelikdev/unimport
-    rev: 1.3.0
+    rev: 1.3.1
     hooks:
       - id: unimport
         files: ^src/
         language_version: python3.12
   - repo: https://github.com/PyCQA/isort
-    rev: 7.0.0
+    rev: 8.0.1
     hooks:
       - id: isort
         name: isort-incendium
@@ -43,9 +43,8 @@ repos:
         files: ^src/
         additional_dependencies: [pydoclint]
         language_version: python3.12
-{%- if generate_stubs %}
   - repo: https://github.com/PyCQA/isort
-    rev: 7.0.0
+    rev: 8.0.1
     hooks:
       - id: isort
         name: isort-stubs
@@ -60,7 +59,6 @@ repos:
         files: \.(pyi)$
         additional_dependencies: [flake8-pyi]
         args: [--config=stubs/tox.ini]
-{% endif %}
   - repo: https://github.com/PyCQA/pydocstyle
     rev: 6.3.0
     hooks:

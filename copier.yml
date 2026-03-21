@@ -91,7 +91,7 @@ copyright_holder:
 copyright_year:
   type: str
   help: Copyright year(s)
-  default: 2025
+  default: 2026
   when: "{{ project_license not in ['Unlicense'] }}"
 
 project_inheritable:
@@ -122,18 +122,6 @@ registry_username:
   help: The username to authenticate to the repository (package index) as.
   default: __token__
   when: "{{ upload_registry and project_type != 'ignition' }}"
-
-use_devcontainer:
-  type: bool
-  help: Should this project use a devcontainer for development?
-  default: no
-  when: "{{ project_type == 'jython' or project_type == 'python' }}"
-
-generate_stubs:
-  type: bool
-  help: Will you create stubs for your package?
-  default: no
-  when: "{{ project_type == 'jython' or project_type == 'python' }}"
 
 # Copier metadata
 _min_copier_version: "9"
