@@ -70,6 +70,11 @@ github_repo:
       Must start with a letter, followed one or more letters, digits or hyphens all lowercase.
     {% endif %}
 
+main_branch:
+  type: str
+  help: What is the name of the main branch for this project?
+  default: main
+
 project_license:
   type: str
   help: Choose a license
