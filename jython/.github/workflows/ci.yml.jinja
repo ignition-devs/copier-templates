@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - 'main'
+      - {{ main_branch }}
 
 jobs:
   pre-commit:
@@ -18,7 +18,7 @@ jobs:
     uses: coatl-dev/workflows/.github/workflows/pylint.yml@v6
 
   jython:
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     runs-on: ubuntu-latest
     env:
       JYTHON_CACHE_DIR: $HOME/.cache/jython
@@ -35,19 +35,19 @@ jobs:
       - name: Cache Jython
         uses: actions/cache@v5
         with:
-          path: ${{ env.JYTHON_CACHE_DIR }}
-          key: jy-${{ steps.setup-jython.outputs.jython-version }}-${{ runner.os }}-${{ steps.setup-jython.outputs.java-distribution }}-${{ steps.setup-jython.outputs.java-version }}-${{ hashFiles('setup.py') }}
+          path: ${% raw %}{{ env.JYTHON_CACHE_DIR }}{% endraw %}
+          key: jy-${% raw %}{{ steps.setup-jython.outputs.jython-version }}{% endraw %}-${% raw %}{{ runner.os }}{% endraw %}-${% raw %}{{ steps.setup-jython.outputs.java-distribution }}{% endraw %}-${% raw %}{{ steps.setup-jython.outputs.java-version }}{% endraw %}-${% raw %}{{ hashFiles('setup.py') }}{% endraw %}
 
       - name: Test installation on Jython
         run: |
-          make install JYTHON_CACHE_DIR=${{ env.JYTHON_CACHE_DIR }}
+          make install JYTHON_CACHE_DIR=${% raw %}{{ env.JYTHON_CACHE_DIR }}{% endraw %}
 
   tox-package:
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v6
 
   tox-stubs:
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
     uses: coatl-dev/workflows/.github/workflows/tox.yml@v6
     with:
       python-versions: |
