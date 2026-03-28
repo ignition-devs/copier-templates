@@ -1,3 +1,9 @@
+## 0.4.1 (2026-03-28)
+
+### Refactor
+
+- **templates**: pre-commit autoupdate (#112)
+
 ## 0.4.0 (2026-03-25)
 
 ### Feat
