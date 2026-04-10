@@ -1,3 +1,9 @@
+## 0.4.5 (2026-04-10)
+
+### Fix
+
+- **templates**: use new value for MIT License (#117)
+
 ## 0.4.4 (2026-04-10)
 
 ### Fix
