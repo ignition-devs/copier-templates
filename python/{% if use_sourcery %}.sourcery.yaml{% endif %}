@@ -1,16 +1,15 @@
-version: '1'
-
 ignore:
-  - .git
-  - venv
-  - .venv
-  - env
-  - .env
-  - .tox
+    - .git
+    - venv
+    - .venv
+    - env
+    - .env
+    - .tox
+    - node_modules
+    - vendor
 
 rule_settings:
-  enable:
-    - default
+  enable: [default]
   disable: []
   rule_types:
     - refactoring
@@ -18,21 +17,22 @@ rule_settings:
     - comment
   python_version: '3.3'
 
-rules:
-  - id: no-print-statements
-    description: Do not use print statements in the src directory.
-    pattern: print
-    language: python
-    paths:
-      include:
-        - src
-    tests: []
-    tags: []
+rules: []
 
 metrics:
   quality_threshold: 25.0
+
+github:
+  labels: []
+  ignore_labels:
+    - sourcery-ignore
+  request_review: author
+  sourcery_branch: sourcery/{base_branch}
 
 clone_detection:
   min_lines: 3
   min_duplicates: 2
   identical_clones_only: false
+
+proxy:
+  no_ssl_verify: false

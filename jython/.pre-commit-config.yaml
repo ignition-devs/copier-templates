@@ -24,9 +24,13 @@ repos:
     rev: 8.0.1
     hooks:
       - id: isort
-        name: isort-incendium
+        name: isort-package
         files: ^src/
         args: [--settings-file=tox.ini]
+      - id: isort
+        name: isort-stubs
+        files: ^stubs/stubs/
+        args: [--settings-file=stubs/tox.ini]
   - repo: https://github.com/PyCQA/docformatter
     rev: v1.7.7
     hooks:
@@ -38,23 +42,16 @@ repos:
     rev: 5.0.4
     hooks:
       - id: flake8
-        name: flake8-incendium
+        name: flake8-package
         args: [--config=tox.ini]
         files: ^src/
         additional_dependencies: [pydoclint]
         language_version: python3.12
-  - repo: https://github.com/PyCQA/isort
-    rev: 8.0.1
-    hooks:
-      - id: isort
-        name: isort-stubs
-        files: ^stubs/stubs/
-        args: [--settings-file=stubs/tox.ini]
   - repo: https://github.com/PyCQA/flake8
     rev: 7.3.0
     hooks:
       - id: flake8
-        name: flake8-incendium-stubs
+        name: flake8-stubs
         types: [file]
         files: \.(pyi)$
         additional_dependencies: [flake8-pyi]
@@ -65,6 +62,12 @@ repos:
       - id: pydocstyle
         files: ^src/
         args: [--config=tox.ini]
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.13.9
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [pre-push]
   - repo: local
     hooks:
       - id: pylint
