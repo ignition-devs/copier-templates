@@ -1,3 +1,9 @@
+## 0.4.7 (2026-04-10)
+
+### Refactor
+
+- apply style to .devcontainer.json files (#119)
+
 ## 0.4.6 (2026-04-10)
 
 ### Fix
