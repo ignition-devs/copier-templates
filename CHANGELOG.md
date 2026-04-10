@@ -1,3 +1,9 @@
+## 0.4.3 (2026-04-10)
+
+### Fix
+
+- **copier**: rollback change to MIT choice (#115)
+
 ## 0.4.2 (2026-04-10)
 
 ### Fix
