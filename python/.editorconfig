@@ -17,6 +17,6 @@ insert_final_newline = false
 indent_size = 2
 insert_final_newline = true
 
-[*.{py}]
+[*.{ini,py}]
 indent_size = 4
 insert_final_newline = true
