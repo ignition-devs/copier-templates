@@ -1,3 +1,9 @@
+## 0.4.4 (2026-04-10)
+
+### Fix
+
+- **copier**: update choices for project_license (#116)
+
 ## 0.4.3 (2026-04-10)
 
 ### Fix
