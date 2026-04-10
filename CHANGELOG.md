@@ -1,3 +1,9 @@
+## 0.4.6 (2026-04-10)
+
+### Fix
+
+- **jython**: set MIT License for jython stubs (#118)
+
 ## 0.4.5 (2026-04-10)
 
 ### Fix
