@@ -16,9 +16,7 @@ classifiers =
     Intended Audience :: Developers
     Intended Audience :: Information Technology
     Intended Audience :: Manufacturing
-    {%- if project_license != 'None' %}
-    License :: OSI Approved :: {{ project_license }}
-    {%- endif %}
+    License :: OSI Approved :: {{ 'MIT License' if project_license == 'MIT' else project_license }}
     Operating System :: MacOS :: MacOS X
     Operating System :: Microsoft :: Windows
     Operating System :: POSIX :: Linux
