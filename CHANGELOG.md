@@ -1,3 +1,9 @@
+## 0.4.9 (2026-04-14)
+
+### Refactor
+
+- update tox.ini for jython and python stubs (#122)
+
 ## 0.4.8 (2026-04-14)
 
 ### Refactor
