@@ -1,3 +1,9 @@
+## 0.4.11 (2026-04-14)
+
+### Fix
+
+- use proper license exoression (#124)
+
 ## 0.4.10 (2026-04-14)
 
 ### Refactor
