@@ -1,3 +1,9 @@
+## 0.4.10 (2026-04-14)
+
+### Refactor
+
+- update package metadata (#123)
+
 ## 0.4.9 (2026-04-14)
 
 ### Refactor
