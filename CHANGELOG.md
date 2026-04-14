@@ -1,3 +1,9 @@
+## 0.4.8 (2026-04-14)
+
+### Refactor
+
+- **jython**: remove flake8 and isort config files under stubs (#121)
+
 ## 0.4.7 (2026-04-10)
 
 ### Refactor
