@@ -1,3 +1,9 @@
+## 0.4.12 (2026-04-15)
+
+### Refactor
+
+- update publish.yml template (#125)
+
 ## 0.4.11 (2026-04-14)
 
 ### Fix
