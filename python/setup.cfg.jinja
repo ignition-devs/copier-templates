@@ -1,5 +1,5 @@
 [metadata]
-name = {{ project_name }}
+name = {{ project_name | replace('-', '_') }}
 version = attr: {{ project_name }}.__about__.__version__
 description = {{ project_description }}
 long_description = file: README.md
@@ -16,7 +16,6 @@ classifiers =
     Intended Audience :: Developers
     Intended Audience :: Information Technology
     Intended Audience :: Manufacturing
-    License :: OSI Approved :: {{ 'MIT License' if project_license == 'MIT' else project_license }}
     Operating System :: MacOS :: MacOS X
     Operating System :: Microsoft :: Windows
     Operating System :: POSIX :: Linux
