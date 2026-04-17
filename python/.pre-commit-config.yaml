@@ -35,8 +35,8 @@ repos:
     rev: v1.7.7
     hooks:
       - id: docformatter
-        args: [--config, tox.ini]
         files: ^src/
+        args: [--config, tox.ini]
         language_version: python3.12
   - repo: https://github.com/coatl-dev/flake8
     rev: 5.0.4
@@ -47,9 +47,6 @@ repos:
         files: ^src/
         additional_dependencies: [pydoclint]
         language_version: python3.12
-  - repo: https://github.com/PyCQA/isort
-    rev: 8.0.1
-    hooks:
   - repo: https://github.com/PyCQA/flake8
     rev: 7.3.0
     hooks:
