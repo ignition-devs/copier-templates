@@ -1,3 +1,9 @@
+## 0.4.14 (2026-04-17)
+
+### Fix
+
+- **python**: remove isort repo with no hooks (#127)
+
 ## 0.4.13 (2026-04-15)
 
 ### Refactor
