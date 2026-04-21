@@ -1,8 +1,8 @@
 [flake8]
+arg-type-hints-in-signature = False
+check-return-types = False
 ignore = DOC301, F401, F821, W191
 max-complexity = 10
 max-doc-length = 72
 max-line-length = 88
 style = google
-arg-type-hints-in-signature = False
-check-return-types = False
