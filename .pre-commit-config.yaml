@@ -17,7 +17,7 @@ repos:
     rev: v1.2.0
     hooks:
     - id: j2lint
-      args: [--ignore, S2, S6, S7, V1, V2, --]
+      args: [--ignore, S6, S7, V1, V2, --]
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.13.10
     hooks:
