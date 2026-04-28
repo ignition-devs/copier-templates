@@ -65,6 +65,26 @@ jobs:
           pylint --generate-rcfile > .pylintrc
         working-directory: python
 
+      - name: Update reusable workflows
+        run: |
+          latest_workflows_tag="$(
+            git ls-remote --tags --refs https://github.com/coatl-dev/workflows.git 'v*' \
+              | awk -F/ '{ print $NF }' \
+              | grep -E '^v[0-9]+$' \
+              | sort -V \
+              | tail -n 1
+          )"
+
+          if [ -z "$latest_workflows_tag" ]; then
+            echo "Unable to determine the latest coatl-dev/workflows tag."
+            exit 1
+          fi
+
+          echo "latest_workflows_tag: $latest_workflows_tag"
+
+          find . -path '*/.github/workflows/*.jinja' -type f -print0 \
+            | xargs -0 sed -i -E "s#(uses: coatl-dev/workflows/.github/workflows/[^[:space:]]+@)v[0-9]+#\1${latest_workflows_tag}#g"
+
       - name: Detect changes
         id: git-diff
         uses: coatl-dev/actions/simple-git-diff@v5
@@ -80,10 +100,10 @@ jobs:
       - name: Commit and push changes
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
         run: |
-          git checkout -B coatl-dev-pre-commit-autoupdate
+          git checkout -B coatl-dev-autoupdate
           git add --update
-          git commit -m 'refactor(templates): pre-commit autoupdate'
-          git push --force --set-upstream origin coatl-dev-pre-commit-autoupdate
+          git commit -m 'refactor(templates): autoupdate'
+          git push --force --set-upstream origin coatl-dev-autoupdate
 
       - name: Create Pull Request
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
