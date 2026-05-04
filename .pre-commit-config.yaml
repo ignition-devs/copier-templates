@@ -10,7 +10,7 @@ repos:
       - id: check-toml
       - id: check-yaml
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.37.1
+    rev: 0.37.2
     hooks:
       - id: check-github-workflows
   - repo: https://github.com/aristanetworks/j2lint
@@ -19,7 +19,7 @@ repos:
     - id: j2lint
       args: [--ignore, S6, S7, V1, V2, --]
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.13.10
+    rev: v4.15.0
     hooks:
       - id: commitizen
       - id: commitizen-branch
