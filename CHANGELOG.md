@@ -1,3 +1,9 @@
+## 0.4.17 (2026-05-08)
+
+### Refactor
+
+- **ignition**: run ruff-check --fix pre-commit hook (#132)
+
 ## 0.4.16 (2026-04-28)
 
 ### Refactor
