@@ -28,17 +28,22 @@ exclude = [
     "venv",
 ]
 
+# Same as Black.​
 line-length = 88
 
 [format]
+# Like Black, use double quotes for strings.
 quote-style = "double"
+
+# Unlike Black, indent with tabs, rather than spaces.
 indent-style = "tab"
+
+# Like Black, respect magic trailing commas.
 skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
 
 [lint]
-select = ["D", "N"]
-ignore = ["D206", "F401"]
-
-[lint.pydocstyle]
-convention = "google"
+# isort
+select = ["I"]

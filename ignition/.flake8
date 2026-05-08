@@ -1,4 +1,5 @@
 [flake8]
+arg-type-hints-in-docstring = False
 arg-type-hints-in-signature = False
 check-return-types = False
 ignore = DOC301, F401, F821, W191
