@@ -19,7 +19,7 @@ repos:
     - id: j2lint
       args: [--ignore, S6, S7, V1, V2, --]
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.15.0
+    rev: v4.15.1
     hooks:
       - id: commitizen
       - id: commitizen-branch
