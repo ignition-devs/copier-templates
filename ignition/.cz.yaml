@@ -3,7 +3,7 @@ commitizen:
   name: cz_conventional_commits
   tag_format: $version
   update_changelog_on_bump: true
-  version: 2026.5.0
+  version: 0.0.1
   version_files:
   - project.json
   - ignition/script-python/app/__about__/code.py:__version__

@@ -7,4 +7,4 @@ commitizen:
   tag_format: $version
   update_changelog_on_bump: true
   version: 0.4.18
-  version_scheme: semver
+  version_scheme: semver2
