@@ -27,8 +27,10 @@ project_name:
   type: str
   help: Project name
   validator: >-
-    {% if not (project_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
-      Must start with a letter, followed one or more letters, digits or hyphens all lowercase.
+    {% if project_type != 'ignition' and not (project_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
+      Must start with a letter, followed by one or more letters, digits or hyphens all lowercase.
+    {% elif project_type == 'ignition' and not (project_name | regex_search('^[a-zA-Z_][a-zA-Z0-9_\-]*$')) %}
+      Must begin with underscore or letter and may only include underscores, hyphens, and alphanumeric characters.
     {% endif %}
 
 project_description:
