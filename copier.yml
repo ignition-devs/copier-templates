@@ -55,6 +55,15 @@ project_development_status:
     Inactive: 7 - Inactive
   when: "{{ project_type != 'ignition' }}"
 
+project_version:
+  type: str
+  help: Project version
+  default: 0.0.1
+  validator: >-
+    {% if not (project_version | regex_search('^(0|[v1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$')) %}
+      Version must be in the format of X.Y.Z where X, Y, and Z are integers. Pre-release and build metadata are also supported.
+    {% endif %}
+
 github_org:
   type: str
   help: Provide a GitHub username or organization.
