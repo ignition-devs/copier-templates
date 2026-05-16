@@ -6,6 +6,7 @@ version_scheme = "pep440"
 version = "{{ project_version }}"
 update_changelog_on_bump = true
 version_files = [
+  ".copier-answers.yml:project_version",
   "src/{{ project_name }}/__about__.py:__version__",
   "stubs/pyproject.toml:version"
 ]

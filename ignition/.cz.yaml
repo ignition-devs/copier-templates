@@ -5,6 +5,7 @@ commitizen:
   update_changelog_on_bump: true
   version: 0.0.1
   version_files:
+  - .copier-answers.yml:project_version
   - project.json
   - ignition/script-python/app/__about__/code.py:__version__
   version_scheme: semver2
