@@ -1,3 +1,9 @@
+## 0.4.21 (2026-05-16)
+
+### Refactor
+
+- update cz config files (#137)
+
 ## 0.4.20 (2026-05-16)
 
 ### Refactor
