@@ -1,3 +1,9 @@
+## 0.4.18 (2026-05-16)
+
+### Refactor
+
+- **ignition**: update isort configuration (#134)
+
 ## 0.4.17 (2026-05-08)
 
 ### Refactor
