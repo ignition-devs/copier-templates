@@ -1,3 +1,9 @@
+## 0.4.22 (2026-05-28)
+
+### Refactor
+
+- **templates**: autoupdate (#139)
+
 ## 0.4.21 (2026-05-16)
 
 ### Refactor
