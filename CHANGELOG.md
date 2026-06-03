@@ -1,3 +1,9 @@
+## 0.4.25 (2026-06-03)
+
+### Refactor
+
+- update gitignore for jython and python (#144)
+
 ## 0.4.24 (2026-06-03)
 
 ### Refactor
