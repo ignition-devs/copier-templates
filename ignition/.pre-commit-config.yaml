@@ -18,7 +18,6 @@ repos:
     rev: 1.4.0
     hooks:
       - id: unimport
-        language_version: python3.12
         files: ^ignition/script-python/
   - repo: https://github.com/coatl-dev/flake8
     rev: 5.0.4
