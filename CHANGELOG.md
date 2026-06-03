@@ -1,3 +1,9 @@
+## 0.4.24 (2026-06-03)
+
+### Refactor
+
+- unimport 1.4.0 supports Python 3.14 (#143)
+
 ## 0.4.23 (2026-06-03)
 
 ### Refactor
