@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         id: setup-python
         with:
           python-version: '3.14'
 
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           repository: coatl-dev/workflow-requirements
           path: deps
@@ -35,7 +35,7 @@ jobs:
           sed -i "s/default: [0-9]\{4\}/default: $current_year/" copier.yml
 
       - name: Cache pip
-        uses: actions/cache@v4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/.cache/pip
           key: pip-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('deps/requirements/prek.txt') }}
@@ -67,7 +67,7 @@ jobs:
           latest_workflows_tag="$(
             git ls-remote --tags --refs https://github.com/coatl-dev/workflows.git 'v*' \
               | awk -F/ '{ print $NF }' \
-              | grep -E '^v[0-9]+$' \
+              | grep -E '^v[0-9].[0-9]+.[0-9]+$' \
               | sort -V \
               | tail -n 1
           )"
@@ -80,16 +80,16 @@ jobs:
           echo "latest_workflows_tag: $latest_workflows_tag"
 
           find . -path '*/.github/workflows/*.jinja' -type f -print0 \
-            | xargs -0 sed -i -E "s#(uses: coatl-dev/workflows/.github/workflows/[^[:space:]]+@)v[0-9]+#\1${latest_workflows_tag}#g"
+            | xargs -0 sed -i -E "s#(uses: coatl-dev/workflows/.github/workflows/[^[:space:]]+@)v[0-9]+\.[0-9]+\.[0-9]+#\1${latest_workflows_tag}#g"
 
       - name: Detect changes
         id: git-diff
-        uses: coatl-dev/actions/simple-git-diff@v5
+        uses: coatl-dev/actions/simple-git-diff@208567f6e604baf94c6e867ec7f345ec9ad36eb4 # v7.0.0
 
       - name: Import GPG key
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
         id: gpg-import
-        uses: coatl-dev/actions/gpg-import@v5
+        uses: coatl-dev/actions/gpg-import@208567f6e604baf94c6e867ec7f345ec9ad36eb4 # v7.0.0
         with:
           passphrase: ${{ secrets.COATL_BOT_GPG_PASSPHRASE }}
           private-key: ${{ secrets.COATL_BOT_GPG_PRIVATE_KEY }}
@@ -104,6 +104,6 @@ jobs:
 
       - name: Create Pull Request
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
-        uses: coatl-dev/actions/pr-create@v5
+        uses: coatl-dev/actions/pr-create@208567f6e604baf94c6e867ec7f345ec9ad36eb4 # v7.0.0
         with:
           gh-token: ${{ secrets.COATL_BOT_GH_TOKEN }}

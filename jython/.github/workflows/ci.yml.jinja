@@ -9,13 +9,13 @@ on:
 
 jobs:
   pre-commit:
-    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@v7.0.0
     with:
       skip-hooks: 'pylint'
 
   pylint:
     needs: pre-commit
-    uses: coatl-dev/workflows/.github/workflows/pylint.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/pylint.yml@v7.0.0
 
   jython:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
@@ -24,16 +24,16 @@ jobs:
       JYTHON_CACHE_DIR: $HOME/.cache/jython
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Set up Jython
-        uses: coatl-dev/actions/setup-jython@v5
+        uses: coatl-dev/actions/setup-jython@208567f6e604baf94c6e867ec7f345ec9ad36eb4 # v7.0.0
         id: setup-jython
         with:
           jython-version: '2.7.3'
 
       - name: Cache Jython
-        uses: actions/cache@v5
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${% raw %}{{ env.JYTHON_CACHE_DIR }}{% endraw %}
           key: jy-${% raw %}{{ steps.setup-jython.outputs.jython-version }}{% endraw %}-${% raw %}{{ runner.os }}{% endraw %}-${% raw %}{{ steps.setup-jython.outputs.java-distribution }}{% endraw %}-${% raw %}{{ steps.setup-jython.outputs.java-version }}{% endraw %}-${% raw %}{{ hashFiles('setup.py') }}{% endraw %}
@@ -44,11 +44,11 @@ jobs:
 
   tox-package:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
-    uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v7.0.0
 
   tox-stubs:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
-    uses: coatl-dev/workflows/.github/workflows/tox.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/tox.yml@v7.0.0
     with:
       python-versions: |
         3.9

@@ -15,24 +15,24 @@ jobs:
     if: ${{ ! startsWith(github.event.head_commit.message, 'bump:') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           fetch-depth: 0
           token: ${{ secrets.COATL_BOT_GH_TOKEN }}
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         id: setup-python
         with:
           python-version: '3.14'
 
       - name: Checkout requirements repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           repository: coatl-dev/workflow-requirements
           path: deps
 
       - name: Cache pip
-        uses: actions/cache@v4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/.cache/pip
           key: pip-${{ steps.setup-python.outputs.python-version }}-${{ runner.os }}-${{ hashFiles('deps/requirements/commitizen.txt') }}
@@ -41,7 +41,7 @@ jobs:
         run: |
           python -m pip install --requirement deps/requirements/commitizen.txt
 
-      - uses: coatl-dev/actions/gpg-import@v5
+      - uses: coatl-dev/actions/gpg-import@208567f6e604baf94c6e867ec7f345ec9ad36eb4 # v7.0.0
         id: gpg-import
         with:
           passphrase: ${{ secrets.COATL_BOT_GPG_PASSPHRASE }}

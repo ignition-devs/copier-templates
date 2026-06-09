@@ -9,21 +9,21 @@ on:
 
 jobs:
   pre-commit:
-    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@v7.0.0
     with:
       skip-hooks: 'pylint'
 
   pylint:
     needs: pre-commit
-    uses: coatl-dev/workflows/.github/workflows/pylint.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/pylint.yml@v7.0.0
 
   tox-package:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
-    uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@v7.0.0
 
   tox-stubs:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
-    uses: coatl-dev/workflows/.github/workflows/tox.yml@v6
+    uses: coatl-dev/workflows/.github/workflows/tox.yml@v7.0.0
     with:
       python-versions: |
         3.9
