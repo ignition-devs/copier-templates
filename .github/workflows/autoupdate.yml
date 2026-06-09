@@ -62,26 +62,6 @@ jobs:
           pylint --generate-rcfile > .pylintrc
         working-directory: python
 
-      - name: Update reusable workflows
-        run: |
-          latest_workflows_tag="$(
-            git ls-remote --tags --refs https://github.com/coatl-dev/workflows.git 'v*' \
-              | awk -F/ '{ print $NF }' \
-              | grep -E '^v[0-9].[0-9]+.[0-9]+$' \
-              | sort -V \
-              | tail -n 1
-          )"
-
-          if [ -z "$latest_workflows_tag" ]; then
-            echo "Unable to determine the latest coatl-dev/workflows tag."
-            exit 1
-          fi
-
-          echo "latest_workflows_tag: $latest_workflows_tag"
-
-          find . -path '*/.github/workflows/*.jinja' -type f -print0 \
-            | xargs -0 sed -i -E "s#(uses: coatl-dev/workflows/.github/workflows/[^[:space:]]+@)v[0-9]+\.[0-9]+\.[0-9]+#\1${latest_workflows_tag}#g"
-
       - name: Detect changes
         id: git-diff
         uses: coatl-dev/actions/simple-git-diff@208567f6e604baf94c6e867ec7f345ec9ad36eb4 # v7.0.0
