@@ -3,6 +3,7 @@
   "pinDigests": true,
   "semanticCommits": "enabled",
   "semanticCommitType": "refactor",
+  "dependencyDashboard": false,
   "customManagers": [
     {
       "customType": "regex",
