@@ -1,3 +1,9 @@
+## 0.4.27 (2026-06-10)
+
+### Refactor
+
+- switch to hash-pinned actions (#147)
+
 ## 0.4.26 (2026-06-09)
 
 ### Refactor
