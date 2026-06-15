@@ -1,3 +1,9 @@
+## 0.4.28 (2026-06-15)
+
+### Refactor
+
+- bump coatl-dev/workflows from 7.0.0 to 7.0.1 (#148)
+
 ## 0.4.27 (2026-06-10)
 
 ### Refactor
