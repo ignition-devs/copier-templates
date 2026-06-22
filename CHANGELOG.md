@@ -1,3 +1,11 @@
+## 0.4.29 (2026-06-22)
+
+### Refactor
+
+- **deps**: update coatl-dev/actions action to v7.0.1 (#155)
+- **deps**: update actions/checkout action to v7 (#151)
+- **deps**: update coatl-dev/actions action to v7.0.1 (#150)
+
 ## 0.4.28 (2026-06-15)
 
 ### Refactor
