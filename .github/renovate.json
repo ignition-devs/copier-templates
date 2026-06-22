@@ -5,12 +5,12 @@
     ":disableDependencyDashboard",
     ":semanticCommitTypeAll(refactor)"
   ],
-  "github-actions": {
-    "managerFilePatterns": [
-      "/(?:ignition|jython|python)/\\.github/workflows/.+\\.ya?ml(?:.jinja)?$//"
-    ]
-  },
   "ignorePaths": [
     ".github/workflows/**"
-  ]
+  ],
+  "github-actions": {
+    "managerFilePatterns": [
+      "/(?:^|/)(?:ignition|jython|python)/\\.github/workflows/.+\\.(?:ya?ml|ya?ml\\.jinja)$/"
+    ]
+  }
 }
