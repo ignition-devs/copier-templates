@@ -13,6 +13,7 @@ repos:
     rev: 0.37.3
     hooks:
       - id: check-github-workflows
+      - id: check-renovate
   - repo: https://github.com/aristanetworks/j2lint
     rev: v1.2.0
     hooks:
