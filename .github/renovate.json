@@ -8,7 +8,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "(^|/)\\.github/workflows/.+\\.jinja$"
+        "(?:ignition|jython|python)/\\.github/workflows/.+\\.jinja$"
       ],
       "matchStrings": [
         "uses:\\s+(?<depName>[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+)(?:/[^@\\s]*)?@(?<currentDigest>[a-f0-9]{40})\\s*#\\s*(?<currentValue>\\S+)"
