@@ -1,20 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "pinDigests": true,
-  "semanticCommits": "enabled",
-  "semanticCommitType": "refactor",
-  "dependencyDashboard": false,
-  "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "(?:ignition|jython|python)/\\.github/workflows/.+\\.jinja$"
-      ],
-      "matchStrings": [
-        "uses:\\s+(?<depName>[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+)(?:/[^@\\s]*)?@(?<currentDigest>[a-f0-9]{40})\\s*#\\s*(?<currentValue>\\S+)"
-      ],
-      "datasourceTemplate": "github-tags",
-      "versioningTemplate": "semver"
-    }
+  "extends": [
+    "config:recommended",
+    ":disableDependencyDashboard",
+    ":semanticCommitTypeAll(refactor)"
+  ],
+  "github-actions": {
+    "managerFilePatterns": [
+      "(?:ignition|jython|python)/\\.github/workflows/.+\\.ya?ml(?:.jinja)?$/"
+    ]
+  },
+  "ignorePaths": [
+    ".github/workflows/**"
   ]
 }
