@@ -1,3 +1,9 @@
+## 0.4.31 (2026-06-23)
+
+### Refactor
+
+- **deps**: update actions/checkout action to v7 (#157)
+
 ## 0.4.30 (2026-06-22)
 
 ### Refactor
