@@ -9,13 +9,13 @@ on:
 
 jobs:
   pre-commit:
-    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@f041f435b9aceead0ef21604b634fd8ef3389c2f # v7.0.3
+    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@4efa3d1fee0878920d797eaf2754608f26cadb37 # v7.0.6
     with:
       skip-hooks: 'pylint'
 
   pylint:
     needs: pre-commit
-    uses: coatl-dev/workflows/.github/workflows/pylint.yml@f041f435b9aceead0ef21604b634fd8ef3389c2f # v7.0.3
+    uses: coatl-dev/workflows/.github/workflows/pylint.yml@4efa3d1fee0878920d797eaf2754608f26cadb37 # v7.0.6
 
   jython:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
@@ -44,11 +44,11 @@ jobs:
 
   tox-package:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
-    uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@f041f435b9aceead0ef21604b634fd8ef3389c2f # v7.0.3
+    uses: coatl-dev/workflows/.github/workflows/tox-docker.yml@4efa3d1fee0878920d797eaf2754608f26cadb37 # v7.0.6
 
   tox-stubs:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
-    uses: coatl-dev/workflows/.github/workflows/tox.yml@f041f435b9aceead0ef21604b634fd8ef3389c2f # v7.0.3
+    uses: coatl-dev/workflows/.github/workflows/tox.yml@4efa3d1fee0878920d797eaf2754608f26cadb37 # v7.0.6
     with:
       python-versions: |
         3.9
