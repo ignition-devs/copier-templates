@@ -1,3 +1,9 @@
+## 0.4.38 (2026-06-27)
+
+### Refactor
+
+- **deps**: update coatl-dev/actions action to v7.0.5 (#164)
+
 ## 0.4.37 (2026-06-27)
 
 ### Refactor
