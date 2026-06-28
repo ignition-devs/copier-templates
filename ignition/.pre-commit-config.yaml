@@ -10,7 +10,7 @@ repos:
       - id: ssort
         files: ^ignition/script-python/
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.16
+    rev: v0.15.20
     hooks:
       - id: ruff-format
         files: ^ignition/script-python/
@@ -35,7 +35,7 @@ repos:
         files: ^ignition/script-python/
         types: [python]
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.16.3
+    rev: v4.16.4
     hooks:
       - id: commitizen
       - id: commitizen-branch
