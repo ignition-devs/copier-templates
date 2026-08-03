@@ -15,12 +15,12 @@ repos:
       - id: check-github-workflows
       - id: check-renovate
   - repo: https://github.com/aristanetworks/j2lint
-    rev: v1.2.0
+    rev: v1.3.0
     hooks:
     - id: j2lint
       args: [--ignore, S6, S7, V1, V2, --]
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.16.5
+    rev: v4.17.0
     hooks:
       - id: commitizen
       - id: commitizen-branch
