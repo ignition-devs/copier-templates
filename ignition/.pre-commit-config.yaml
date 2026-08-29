@@ -5,12 +5,12 @@ repos:
       - id: sort-all
         files: ^ignition/script-python/
   - repo: https://github.com/bwhmather/ssort
-    rev: 0.16.0
+    rev: 0.17.0
     hooks:
       - id: ssort
         files: ^ignition/script-python/
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.0
+    rev: v0.16.5
     hooks:
       - id: ruff-format
         files: ^ignition/script-python/
@@ -35,7 +35,7 @@ repos:
         files: ^ignition/script-python/
         types: [python]
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.16.5
+    rev: v4.18.0
     hooks:
       - id: commitizen
       - id: commitizen-branch
