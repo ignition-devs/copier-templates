@@ -1,3 +1,9 @@
+## 0.4.72 (2026-09-22)
+
+### Refactor
+
+- run pylint on src directory (#205)
+
 ## 0.4.71 (2026-09-21)
 
 ### Refactor
