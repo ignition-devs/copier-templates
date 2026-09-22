@@ -16,6 +16,8 @@ jobs:
   pylint:
     needs: pre-commit
     uses: coatl-dev/workflows/.github/workflows/pylint.yml@14c26346d404da7cc780a7952deae705fff56e10 # v7.0.31
+    with:
+      path: 'src'
 
   tox-package:
     if: ${% raw %}{{ github.event_name == 'pull_request' }}{% endraw %}
