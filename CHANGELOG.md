@@ -1,3 +1,9 @@
+## 0.4.73 (2026-09-22)
+
+### Fix
+
+- delete pull_request condition on tox jobs (#206)
+
 ## 0.4.72 (2026-09-22)
 
 ### Refactor
