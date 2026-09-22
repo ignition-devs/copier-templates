@@ -10,7 +10,7 @@
   ],
   "github-actions": {
     "managerFilePatterns": [
-      "/(?:^|/)(?:ignition|jython|python)/\\.github/workflows/.+\\.(?:ya?ml|ya?ml\\.jinja)$/"
+      "/(?:^|/)(?:ignition|jython|python)/\\.github/workflows/.+\\.ya?ml\\.jinja$/"
     ]
   }
 }
