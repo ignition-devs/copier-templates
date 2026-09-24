@@ -77,8 +77,8 @@ github_repo:
   help: Provide a GitHub repository name for your username or organization.
   default: "{{ project_name }}"
   validator: >-
-    {% if not (github_repo | regex_search('^[a-z][a-z0-9\-]+$')) %}
-      Must start with a letter, followed one or more letters, digits or hyphens all lowercase.
+    {% if not (github_repo | regex_search('^[A-Za-z0-9._-]{1,100}$')) %}
+      Must be 1-100 characters and contain only letters, digits, hyphens, underscores, or periods.
     {% endif %}
 
 main_branch:
