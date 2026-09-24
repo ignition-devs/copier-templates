@@ -1,3 +1,9 @@
+## 0.4.74 (2026-09-24)
+
+### Fix
+
+- **copier**: update validator for github_repo (#207)
+
 ## 0.4.73 (2026-09-22)
 
 ### Fix
