@@ -1,3 +1,9 @@
+## 0.4.75 (2026-09-28)
+
+### Refactor
+
+- **deps**: update coatl-dev/workflows action to v7.0.32 (#209)
+
 ## 0.4.74 (2026-09-24)
 
 ### Fix
