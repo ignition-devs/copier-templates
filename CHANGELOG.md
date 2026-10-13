@@ -1,3 +1,9 @@
+## 0.5.0 (2026-10-13)
+
+### Feat
+
+- improve devcontainer performance (#216)
+
 ## 0.4.78 (2026-10-12)
 
 ### Refactor
