@@ -4,7 +4,9 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
   "workspaceFolder": "/workspaces/{{ project_name }}",
   "mounts": [
-    "source=pre-commit-cache,target=/root/.cache/pre-commit,type=volume"
+    "source=pre-commit-cache,target=/root/.cache/pre-commit,type=volume",
+    "source={{ project_name }}-tox,target=${containerWorkspaceFolder}/.tox,type=volume",
+    "source={{ project_name }}-tox-stubs,target=${containerWorkspaceFolder}/stubs/.tox,type=volume"
   ],
   "customizations": {
     "vscode": {
