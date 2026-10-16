@@ -1,3 +1,9 @@
+## 0.5.1 (2026-10-16)
+
+### Refactor
+
+- **devcontainer**: add vscode settings to improve performance (#217)
+
 ## 0.5.0 (2026-10-13)
 
 ### Feat
