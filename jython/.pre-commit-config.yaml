@@ -18,6 +18,7 @@ repos:
     rev: 1.5.0
     hooks:
       - id: unimport
+        language_version: python3.12
         files: ^src/
   - repo: https://github.com/PyCQA/isort
     rev: 10.0.0b1
