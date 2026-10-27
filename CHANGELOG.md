@@ -1,3 +1,9 @@
+## 0.6.2 (2026-10-27)
+
+### Refactor
+
+- **jython**: use python3.12 for unimport pre-commit hook (#223)
+
 ## 0.6.1 (2026-10-27)
 
 ### Refactor
