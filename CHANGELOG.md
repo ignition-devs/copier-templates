@@ -1,3 +1,9 @@
+## 0.6.5 (2026-11-02)
+
+### Refactor
+
+- **deps**: bump coatl-dev/actions and coatl-dev/workflows (#226)
+
 ## 0.6.4 (2026-11-02)
 
 ### Refactor
