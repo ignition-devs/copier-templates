@@ -1,3 +1,9 @@
+## 0.6.6 (2026-11-03)
+
+### Refactor
+
+- expand tox-based stub validation to Python 3.12 (#228)
+
 ## 0.6.5 (2026-11-02)
 
 ### Refactor
