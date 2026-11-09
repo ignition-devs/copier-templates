@@ -9,7 +9,7 @@ on:
 
 jobs:
   pre-commit:
-    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@0d8d2f45676648a5770bb2f9bb5678bf789db46c # v7.1.3
+    uses: coatl-dev/workflows/.github/workflows/pre-commit.yml@fbc642c450cdcec3bbc241de8be94e944265d4f1 # v7.1.4
     with:
       skip-hooks: 'pylint'
       python-version: |
@@ -18,4 +18,4 @@ jobs:
 
   pylint:
     needs: pre-commit
-    uses: coatl-dev/workflows/.github/workflows/pylint.yml@0d8d2f45676648a5770bb2f9bb5678bf789db46c # v7.1.3
+    uses: coatl-dev/workflows/.github/workflows/pylint.yml@fbc642c450cdcec3bbc241de8be94e944265d4f1 # v7.1.4
